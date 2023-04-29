@@ -1,10 +1,41 @@
 **HTML Outline**
 
 -entire background a softer white
-
 -"poke guesser" tbd title card with background
 - An element that has a short description of game
 - also with button to start game
+- dropdown for difficulty (lives)
+- when buttun pressed, starts game
+  - loads 5 card elements
+  - loads form submission 
+  - loads score/lives counters near form submission
+  
+-each card has a number label "poke num"
+-each card has image of a pokemon
+-each card has a label with the pokemons name. 
+  - this should be hidden, or will update the name after form submission
+  - this label has styles that change to denote correct or wrong (green and red)
+- these cards will all be housed within a <div>
+- this div will have a title "guess that pokemon!" and change to "n/5 Correct!" on form submission
+
+- form submission has 5 text inputs
+- each input will have a label corresponding to which pokemon you are guessing
+- submit button on form
+- on submit color of text in form will change to denote correct/wrong
+- update cards label of pokemon in similar text styling
+- updates score and lives counters
+- creates button element to "load next round"
+- on press button deletes all cards, resets the form
+  - loads 5 new cards with different pokemon
+ 
+- If run out of lives, delete cards, display "you lose" screen with try again button
+- If complete all 151, load "you win" 
+
+
+
+
+
+
 
 
 json server to have highscores // stretch goal
