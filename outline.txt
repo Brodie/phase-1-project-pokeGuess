@@ -1,0 +1,10 @@
+**HTML Outline**
+
+-entire background a softer white
+
+-"poke guesser" tbd title card with background
+- An element that has a short description of game
+- also with button to start game
+
+
+json server to have highscores // stretch goal
