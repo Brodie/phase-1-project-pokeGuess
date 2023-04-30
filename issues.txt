@@ -5,3 +5,11 @@ Current issue im thinking about: Accessing an array that is being pushed into vi
     - My worry is attempting to access this array may run into bugs as due to the async nature of fetch,
     code will be loaded and executed before the fetch has pushed into the array. 
     - maybe by running code via event listener at a later time it will be fine? not sure, will have to test
+
+
+Wanted to dynamically generate an array of 5 random nums between 1-151 (instead of just making an array of 151 numbers and pulling 5 nums randomly)
+Then wanted to test if the number had already been generated
+- this issue led to me attempting to build a function that would recursively call itself
+- this function would generate a random number, then if the number was a part of a "usedNums" array, it would recursively run again.
+- if the number was not in the array, it would get pushed to both a "usedNums" array, and a "pokeNums"
+---- think i got this one figured out ---- just need to make sure the cards generated match the 5 nums generated and not generate the entire array
