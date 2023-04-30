@@ -31,11 +31,33 @@
 - If run out of lives, delete cards, display "you lose" screen with try again button
 - If complete all 151, load "you win" 
 
+ROUGH JS Outline (what are we going to need in it)
+
+- maybe start by declaring a bunch of variables correlated with the dom
+- event listener for our start game button that will run the code to start the game
+
+- function to generate 5 random numbers and add each to an array.
+- loop through this array, performing a fetch that will target the pokemon corresponding with number
+- using the object provided, create a new object with id, name, and a picture keys
+- Use this to create a new card element of just the picture, with a title of whatever card # it is
+  - card element will also have blank text box below.
+
+- function that will initialize a lives counter with a while loop.
+  - this lives counter will start at a number and decrease by 1 if a guess is incorrect
+  
+- event listener that waits for a form submit.
+- on form submit will check the values of each box 1-5
+- will compare this to the corresponding name with matching object id created after our fetch
+- if correct will change text color to green, will add pokemon name under picture in green
+- if incorrect will change text color to red, will add correct pokemon name under picture in red
+  - will subtract 1 from lives counter
+- will initialize a score counter and add 1 for each correct answer
+- will update title of div containing cards to reflect number correct out of 5
+- if lives = 0 end game, load you lose screen
 
 
 
 
-
-
-
-json server to have highscores // stretch goal
+Stretch goals
+- reload button that loads new 5 but not the same
+- json server to have highscores
