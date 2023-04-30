@@ -7,22 +7,23 @@ console.log("hi");
 // barebones appending of poke image to dom
 // ------------------------------------------------------
 
-let pokeNums = []
-let usedNums = []
+document.getElementById("btn_id").addEventListener("click", ()=>{
 function rdmNum (){
     let rdm = Math.floor(Math.random() * (151 - 1 + 1) + 1)
     console.log(rdm)
     return rdm
 }
-for (let i = 0; i < 5; i++) {
+function arrTester(){
     let newNum = rdmNum()
     if(usedNums.includes(newNum)) {
-        // regenerate new num and try again
-        // recursive calling of this for loop?
+        arrTester()
     }else{
         pokeNums.push(newNum)
         usedNums.push(newNum)
     }
+}
+for (let i = 0; i < 5; i++) {
+    arrTester()
 }
 
 let arrayOfPokes = [];
