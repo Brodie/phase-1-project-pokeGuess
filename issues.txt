@@ -13,3 +13,4 @@ Then wanted to test if the number had already been generated
 - this function would generate a random number, then if the number was a part of a "usedNums" array, it would recursively run again.
 - if the number was not in the array, it would get pushed to both a "usedNums" array, and a "pokeNums"
 ---- think i got this one figured out ---- just need to make sure the cards generated match the 5 nums generated and not generate the entire array
+

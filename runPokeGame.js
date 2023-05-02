@@ -40,9 +40,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
         arrayOfPokes.push(pokeObj);
         console.log(arrayOfPokes);
 
-        let card = document.createElement("div");
-        card.setAttribute("id", `${index}`);
-
+        let card = document.getElementById(`poke_${index + 1}`);
         let cardTitle = document.createElement("h2");
         cardTitle.textContent = `Pokemon Number ${index + 1}`;
         card.append(cardTitle);
@@ -50,7 +48,6 @@ document.getElementById("btn_id").addEventListener("click", () => {
         let pokeImg = document.createElement("img");
         pokeImg.src = pokeObj.img;
         card.append(pokeImg);
-        document.getElementById("card_list").append(card);
 
         pokeNums.shift();
       });
