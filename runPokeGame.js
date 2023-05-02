@@ -6,42 +6,53 @@ console.log("hi");
 // pushing object to arrayOfPokes
 // barebones appending of poke image to dom
 // ------------------------------------------------------
-
-document.getElementById("btn_id").addEventListener("click", ()=>{
-function rdmNum (){
-    let rdm = Math.floor(Math.random() * (151 - 1 + 1) + 1)
-    console.log(rdm)
-    return rdm
-}
-function arrTester(){
-    let newNum = rdmNum()
-    if(usedNums.includes(newNum)) {
-        arrTester()
-    }else{
-        pokeNums.push(newNum)
-        usedNums.push(newNum)
-    }
-}
-for (let i = 0; i < 5; i++) {
-    arrTester()
-}
-
+let pokeNums = [];
+let usedNums = [];
 let arrayOfPokes = [];
 
-pokeNums.forEach((num) => {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${num}/`)
-    .then((res) => res.json())
-    .then((data) => {
-      let pokeObj = {};
-      pokeObj.id = num;
-      pokeObj.name = data.name;
-      pokeObj.img = data.sprites.front_default;
-      arrayOfPokes.push(pokeObj);
-      console.log(arrayOfPokes);
-      let card = document.createElement("div")
-      let pokeImg = document.createElement("img")
-      pokeImg.src = pokeObj.img
-      card.append(pokeImg)
-      document.querySelector("body").append(card)
-    });
+document.getElementById("btn_id").addEventListener("click", () => {
+  function rdmNum() {
+    let rdm = Math.floor(Math.random() * (151 - 1 + 1) + 1);
+    console.log(rdm);
+    return rdm;
+  }
+  function arrTester() {
+    let newNum = rdmNum();
+    if (usedNums.includes(newNum)) {
+      arrTester();
+    } else {
+      pokeNums.push(newNum);
+      usedNums.push(newNum);
+    }
+  }
+  for (let i = 0; i < 5; i++) {
+    arrTester();
+  }
+
+  pokeNums.forEach((num, index) => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${num}/`)
+      .then((res) => res.json())
+      .then((data) => {
+        let pokeObj = {};
+        pokeObj.id = num;
+        pokeObj.name = data.name;
+        pokeObj.img = data.sprites.front_default;
+        arrayOfPokes.push(pokeObj);
+        console.log(arrayOfPokes);
+
+        let card = document.createElement("div");
+        card.setAttribute("id", `${index}`);
+
+        let cardTitle = document.createElement("h2");
+        cardTitle.textContent = `Pokemon Number ${index + 1}`;
+        card.append(cardTitle);
+
+        let pokeImg = document.createElement("img");
+        pokeImg.src = pokeObj.img;
+        card.append(pokeImg);
+        document.getElementById("card_list").append(card);
+
+        pokeNums.shift();
+      });
+  });
 });
