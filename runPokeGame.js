@@ -1,3 +1,10 @@
+/* ToDo next time: 
+add name of pokemon to card element, but hidden
+maybe toy with styles a little to get a feel
+add drop down for types to form, try to style so type drop down is in line with text
+if drop down and text input looks good, start hooking up form! 
+*/
+
 console.log("hi");
 
 // assigning values to object with id, name, pic src keys
