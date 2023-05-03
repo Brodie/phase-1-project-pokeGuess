@@ -12,7 +12,7 @@ let arrayOfPokes = [];
 
 document.getElementById("btn_id").addEventListener("click", () => {
   function rdmNum() {
-    let rdm = Math.floor(Math.random() * (151 - 1 + 1) + 1);
+    let rdm = Math.floor(Math.random() * (386 - 1 + 1) + 1);
     console.log(rdm);
     return rdm;
   }

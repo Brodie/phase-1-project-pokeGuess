@@ -14,3 +14,6 @@ Then wanted to test if the number had already been generated
 - if the number was not in the array, it would get pushed to both a "usedNums" array, and a "pokeNums"
 ---- think i got this one figured out ---- just need to make sure the cards generated match the 5 nums generated and not generate the entire array
 
+Realized I needed a 3rd element for the object pulled from API after rereading requirements (ID dont count lol)
+ -- created way to add type or types to object
+ -- will have to add way to guess type to form. maybe dropdown or two?
