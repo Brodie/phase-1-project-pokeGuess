@@ -1,7 +1,5 @@
 console.log("hi");
 
-// testing random array generator
-// trying to test array against values already generated to avoid duplicate fetches
 // assigning values to object with id, name, pic src keys
 // pushing object to arrayOfPokes
 // barebones appending of poke image to dom
@@ -32,16 +30,16 @@ document.getElementById("btn_id").addEventListener("click", () => {
   pokeNums.forEach((num, index) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${num}/`)
       .then((res) => res.json())
-      .then((data) => {
+      .then((pokemon) => {
         let pokeObj = {};
         pokeObj.id = num;
-        pokeObj.name = data.name;
-        pokeObj.img = data.sprites.front_default;
-        if (data.types.length === 2) {
-          pokeObj.typeOne = data.types[0].type.name;
-          pokeObj.typeTwo = data.types[1].type.name;
+        pokeObj.name = pokemon.name;
+        pokeObj.img = pokemon.sprites.front_default;
+        if (pokemon.types.length === 2) {
+          pokeObj.typeOne = pokemon.types[0].type.name;
+          pokeObj.typeTwo = pokemon.types[1].type.name;
         } else {
-          pokeObj.typeOne = data.types[0].type.name;
+          pokeObj.typeOne = pokemon.types[0].type.name;
         }
 
         arrayOfPokes.push(pokeObj);
