@@ -37,7 +37,13 @@ document.getElementById("btn_id").addEventListener("click", () => {
         pokeObj.id = num;
         pokeObj.name = data.name;
         pokeObj.img = data.sprites.front_default;
-        pokeObj.types = data.types[0].type.name;
+        if (data.types.length === 2) {
+          pokeObj.typeOne = data.types[0].type.name;
+          pokeObj.typeTwo = data.types[1].type.name;
+        } else {
+          pokeObj.typeOne = data.types[0].type.name;
+        }
+
         arrayOfPokes.push(pokeObj);
         console.log(arrayOfPokes);
 
