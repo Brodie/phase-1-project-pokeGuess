@@ -66,6 +66,8 @@ let pokeScore = 0;
 
 // button to start game
 document.getElementById("btn_id").addEventListener("click", () => {
+  // delete lets play button
+  document.getElementById("btn_id").remove();
   // make lives container and score container visible
   let lives = document.getElementById("lives_container");
   lives.style.visibility = "visible";
@@ -86,7 +88,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
     card.append(pokeImg);
 
     let pokeNameFoot = document.createElement("footer");
-    pokeNameFoot.classList.add("poke_name");
+    pokeNameFoot.classList.add("poke_name", "poke_answers");
     pokeNameFoot.textContent = pokeObj.name.toUpperCase();
     pokeNameFoot.style.visibility = "hidden";
     card.append(pokeNameFoot);
@@ -139,16 +141,25 @@ form.addEventListener("submit", (e) => {
     // type checking no points taken
     if (types.includes(typeOneGuess)) {
       pokeScore += 1;
-      console.log("added point for type");
       if (types.includes(typeTwoGuess)) {
         pokeScore += 1;
-        console.log("added second point for type");
       }
     } else if (types.includes(typeTwoGuess)) {
       pokeScore += 1;
-      console.log("added point for second type only ");
     }
-  }
+    // update poke card to display types
+    let pokeCard = document.getElementById(`poke_${i}`);
+    let typesText = document.createElement("h3");
+    typesText.classList.add("poke_answers");
+    if (types.length === 2) {
+      typesText.textContent = `Types: ${types[0].toUpperCase()}, ${types[1].toUpperCase()}`;
+    } else {
+      typesText.textContent = `Type: ${types[0].toUpperCase()}`;
+    }
+    pokeCard.append(typesText);
+  } // end of for loop
+  //------------------
+
   // update score and lives
   document.getElementById(
     "lives_container"
@@ -156,5 +167,7 @@ form.addEventListener("submit", (e) => {
   document.getElementById(
     "score_container"
   ).textContent = `Score: ${pokeScore}`;
+
+  //reset form
   form.reset();
 });
