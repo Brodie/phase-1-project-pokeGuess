@@ -123,17 +123,30 @@ form.addEventListener("submit", (e) => {
     let typeTwoGuess = document.getElementById(`guess_${i}_type2`).value;
     let types = Object.values(arrayOfPokes[i - 1]).slice(3);
 
+    // Answer checking
     if (guess === answer) {
-      console.log(`Correct!: ${guess}`);
       pokeScore += 1;
       footerAnswer.textContent = "Correct! " + `${footerAnswer.textContent}`;
       footerAnswer.style.color = "aqua";
     } else {
-      console.log(`WRONG! Correct Answer: ${answer}`);
       livesCounter -= 1;
       footerAnswer.textContent =
-        "Incorrect, the correct answer is: " + `${footerAnswer.textContent}`;
+        "Sorry, the answer is: " +
+        `${footerAnswer.textContent}` +
+        ` You guessed ${guess.toUpperCase()}`;
       footerAnswer.style.color = "orange";
+    }
+    // type checking no points taken
+    if (types.includes(typeOneGuess)) {
+      pokeScore += 1;
+      console.log("added point for type");
+      if (types.includes(typeTwoGuess)) {
+        pokeScore += 1;
+        console.log("added second point for type");
+      }
+    } else if (types.includes(typeTwoGuess)) {
+      pokeScore += 1;
+      console.log("added point for second type only ");
     }
   }
   // update score and lives
@@ -143,4 +156,5 @@ form.addEventListener("submit", (e) => {
   document.getElementById(
     "score_container"
   ).textContent = `Score: ${pokeScore}`;
+  form.reset();
 });
