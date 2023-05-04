@@ -1,3 +1,11 @@
+/*ToDo: 
+add score container
+add lives container
+on start game add these 2 containers to DOM
+hook up form to add points and deduct lives based on form answers!
+test! at this point i think it should be mostly hooked up to be a MVP. if so, try to add more features!
+
+*/
 console.log("hi");
 
 // arrays for performing fetch
@@ -53,9 +61,18 @@ pokeNums.forEach((num) => {
 //--------------------------------------------------------------
 // Code above runs on load, Code below is Interactions with page
 //--------------------------------------------------------------
+let livesCounter = 3;
+let pokeScore = 0;
 
 // button to start game
 document.getElementById("btn_id").addEventListener("click", () => {
+  // make lives container and score container visible
+  let lives = document.getElementById("lives_container");
+  lives.style.visibility = "visible";
+  lives.textContent = `Lives:💟 ${livesCounter}`;
+  let score = document.getElementById("score_container");
+  score.style.visibility = "visible";
+  score.textContent = `Score: ${pokeScore}`;
   // build pokemon card
   arrayOfPokes.forEach((pokeObj, index) => {
     let card = document.getElementById(`poke_${index + 1}`);
@@ -89,8 +106,6 @@ document.getElementById("btn_id").addEventListener("click", () => {
   }
 });
 
-const livesCounter = 3;
-
 let form = document.getElementById("pokeForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -100,7 +115,6 @@ form.addEventListener("submit", (e) => {
     let footerAnswer = document.getElementsByClassName("poke_name")[i - 1];
     footerAnswer.style.visibility = "visible";
     footerAnswer.style.backgroundColor = "gray";
-    footerAnswer.style.color = "orange";
 
     // assigning needed variables for evaluations
     let guess = document.getElementById(`guess_${i}`).value.toLowerCase();
@@ -109,14 +123,24 @@ form.addEventListener("submit", (e) => {
     let typeTwoGuess = document.getElementById(`guess_${i}_type2`).value;
     let types = Object.values(arrayOfPokes[i - 1]).slice(3);
 
-    console.log(typeOneGuess);
-    console.log(typeTwoGuess);
-    console.log(types);
-
     if (guess === answer) {
       console.log(`Correct!: ${guess}`);
+      pokeScore += 1;
+      footerAnswer.textContent = "Correct! " + `${footerAnswer.textContent}`;
+      footerAnswer.style.color = "aqua";
     } else {
       console.log(`WRONG! Correct Answer: ${answer}`);
+      livesCounter -= 1;
+      footerAnswer.textContent =
+        "Incorrect, the correct answer is: " + `${footerAnswer.textContent}`;
+      footerAnswer.style.color = "orange";
     }
   }
+  // update score and lives
+  document.getElementById(
+    "lives_container"
+  ).textContent = `Lives:💟 ${livesCounter}`;
+  document.getElementById(
+    "score_container"
+  ).textContent = `Score: ${pokeScore}`;
 });
