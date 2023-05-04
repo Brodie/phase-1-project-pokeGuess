@@ -87,7 +87,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
     pokeImg.src = pokeObj.img;
     card.append(pokeImg);
 
-    let pokeNameFoot = document.createElement("footer");
+    let pokeNameFoot = document.createElement("h2");
     pokeNameFoot.classList.add("poke_name", "poke_answers");
     pokeNameFoot.textContent = pokeObj.name.toUpperCase();
     pokeNameFoot.style.visibility = "hidden";
@@ -125,6 +125,25 @@ form.addEventListener("submit", (e) => {
     let typeTwoGuess = document.getElementById(`guess_${i}_type2`).value;
     let types = Object.values(arrayOfPokes[i - 1]).slice(3);
 
+    // update poke card to display types
+    let pokeCard = document.getElementById(`poke_${i}`);
+    let typesText = document.createElement("h3");
+    let typesAnswered = document.createElement("h3");
+    typesText.classList.add("poke_answers");
+    typesText.style.backgroundColor = "gray";
+    typesAnswered.style.backgroundColor = "gray";
+    typesAnswered.style.color = "white";
+
+    if (types.length === 2) {
+      typesText.textContent = `Types: ${types[0].toUpperCase()}, ${types[1].toUpperCase()}`;
+      typesAnswered.textContent = `You Guessed: ${typeOneGuess.toUpperCase()} ${typeTwoGuess.toUpperCase()}`;
+    } else {
+      typesText.textContent = `Type: ${types[0].toUpperCase()}`;
+      typesAnswered.textContent = `You Guessed: ${typeOneGuess.toUpperCase()}`;
+    }
+    pokeCard.append(typesText);
+    pokeCard.append(typesAnswered);
+
     // Answer checking
     if (guess === answer) {
       pokeScore += 1;
@@ -138,25 +157,27 @@ form.addEventListener("submit", (e) => {
         ` You guessed ${guess.toUpperCase()}`;
       footerAnswer.style.color = "orange";
     }
-    // type checking no points taken
+    // type checking no lives taken
     if (types.includes(typeOneGuess)) {
       pokeScore += 1;
       if (types.includes(typeTwoGuess)) {
         pokeScore += 1;
+        typesText.style.color = "cyan";
+        typesText.textContent = typesText.textContent + " | + 2 points!";
+      } else if (!types.includes(typeTwoGuess)) {
+        typesText.style.color = "cyan";
+        typesText.textContent = typesText.textContent + " | + 1 point!";
       }
-    } else if (types.includes(typeTwoGuess)) {
-      pokeScore += 1;
+    } else if (!types.includes(typeOneGuess)) {
+      if (types.includes(typeTwoGuess)) {
+        typesText.style.color = "cyan";
+        typesText.textContent = typesText.textContent + " | + 1 point!";
+      } else {
+        typesText.style.color = "orange";
+        typesText.textContent =
+          typesText.textContent + " | incorrect, no points!";
+      }
     }
-    // update poke card to display types
-    let pokeCard = document.getElementById(`poke_${i}`);
-    let typesText = document.createElement("h3");
-    typesText.classList.add("poke_answers");
-    if (types.length === 2) {
-      typesText.textContent = `Types: ${types[0].toUpperCase()}, ${types[1].toUpperCase()}`;
-    } else {
-      typesText.textContent = `Type: ${types[0].toUpperCase()}`;
-    }
-    pokeCard.append(typesText);
   } // end of for loop
   //------------------
 
@@ -167,7 +188,4 @@ form.addEventListener("submit", (e) => {
   document.getElementById(
     "score_container"
   ).textContent = `Score: ${pokeScore}`;
-
-  //reset form
-  form.reset();
 });
