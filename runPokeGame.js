@@ -14,7 +14,6 @@ let arrayOfPokes = [];
 
 function rdmNum() {
   let rdm = Math.floor(Math.random() * (151 - 1 + 1) + 1);
-  console.log(rdm);
   return rdm;
 }
 function arrTester() {
@@ -80,5 +79,19 @@ document.getElementById("btn_id").addEventListener("click", () => {
       arrTester();
     }
   }
-  console.log(usedNums);
+});
+
+let form = document.getElementById("pokeForm");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log(e);
+  console.log(e.target);
+  for (let i = 1; i < 6; i++) {
+    if (
+      document.getElementById(`guess_${i}`).value.toLowerCase() ===
+      arrayOfPokes[i - 1].name.toLowerCase()
+    ) {
+      console.log(document.getElementById(`guess_${i}`).value);
+    }
+  }
 });
