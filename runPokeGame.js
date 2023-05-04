@@ -1,35 +1,35 @@
 console.log("hi");
 
-// assigning values to object with id, name, pic src keys
-// pushing object to arrayOfPokes
-// barebones appending of poke image to dom
-// ------------------------------------------------------
-
+// arrays for performing fetch
 let pokeNums = [];
 let usedNums = [];
 let arrayOfPokes = [];
 
-//need to fetch pokemon before click, then use the fetched object after being clicked to generate
-// the cards. instead of clicking and loading them all
-
+// random number between 1 and 151
+// might add variables and add dom content way to change at some point. guess more pokemon!
 function rdmNum() {
   let rdm = Math.floor(Math.random() * (151 - 1 + 1) + 1);
   return rdm;
 }
-function arrTester() {
+// generates random number to be fetched
+// adds numbers to used nums array if number has not been generated yet
+// if number has not been generated, is added to pokeNums array
+// if number exists, recursively calls self to generate new number and try again
+function generatePokeNums() {
   let newNum = rdmNum();
   if (usedNums.includes(newNum)) {
-    arrTester();
+    generatePokeNums();
   } else {
     pokeNums.push(newNum);
     usedNums.push(newNum);
   }
 }
+// generate 5 numbers
 for (let i = 0; i < 5; i++) {
-  arrTester();
+  generatePokeNums();
 }
 // fetches array of pokeObj on load, preps the array to be iterated through to add card elements
-// then addes pokeObj to array of Pokes
+// then addes pokeObj to arrayOfPokes
 pokeNums.forEach((num) => {
   fetch(`https://pokeapi.co/api/v2/pokemon/${num}/`)
     .then((res) => res.json())
@@ -50,8 +50,13 @@ pokeNums.forEach((num) => {
       console.log(arrayOfPokes);
     });
 });
+//--------------------------------------------------------------
+// Code above runs on load, Code below is Interactions with page
+//--------------------------------------------------------------
 
+// button to start game
 document.getElementById("btn_id").addEventListener("click", () => {
+  // build pokemon card
   arrayOfPokes.forEach((pokeObj, index) => {
     let card = document.getElementById(`poke_${index + 1}`);
 
@@ -70,13 +75,15 @@ document.getElementById("btn_id").addEventListener("click", () => {
 
     // clear poke nums for fetching of new pokes on second round
     pokeNums.shift();
-    // if already pulled 150, should only pull one more
   });
+
+  // if already pulled 150, should only pull one more
+  // generate new 5 nums for next round
   if (usedNums.length === 150) {
-    arrTester();
+    generatePokeNums();
   } else {
     for (let i = 0; i < 5; i++) {
-      arrTester();
+      generatePokeNums();
     }
   }
 });
@@ -84,8 +91,9 @@ document.getElementById("btn_id").addEventListener("click", () => {
 let form = document.getElementById("pokeForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(e.target);
+  // for loop to check each guess starting with 1
   for (let i = 1; i < 6; i++) {
+    // assigning needed variables for evaluations
     let guess = document.getElementById(`guess_${i}`).value.toLowerCase();
     let answer = arrayOfPokes[i - 1].name.toLowerCase();
     let typeOneGuess = document.getElementById(`guess_${i}_type1`).value;
