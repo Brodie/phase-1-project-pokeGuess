@@ -84,14 +84,22 @@ document.getElementById("btn_id").addEventListener("click", () => {
 let form = document.getElementById("pokeForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  console.log(e);
   console.log(e.target);
   for (let i = 1; i < 6; i++) {
-    if (
-      document.getElementById(`guess_${i}`).value.toLowerCase() ===
-      arrayOfPokes[i - 1].name.toLowerCase()
-    ) {
-      console.log(document.getElementById(`guess_${i}`).value);
+    let guess = document.getElementById(`guess_${i}`).value.toLowerCase();
+    let answer = arrayOfPokes[i - 1].name.toLowerCase();
+    let typeOneGuess = document.getElementById(`guess_${i}_type1`).value;
+    let typeTwoGuess = document.getElementById(`guess_${i}_type2`).value;
+    let types = Object.values(arrayOfPokes[i - 1]).slice(3);
+
+    console.log(typeOneGuess);
+    console.log(typeTwoGuess);
+    console.log(types);
+
+    if (guess === answer) {
+      console.log(`Correct!: ${guess}`);
+    } else {
+      console.log(`WRONG! Correct Answer: ${answer}`);
     }
   }
 });
