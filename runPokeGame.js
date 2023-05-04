@@ -69,6 +69,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
     card.append(pokeImg);
 
     let pokeNameFoot = document.createElement("footer");
+    pokeNameFoot.classList.add("poke_name");
     pokeNameFoot.textContent = pokeObj.name.toUpperCase();
     pokeNameFoot.style.visibility = "hidden";
     card.append(pokeNameFoot);
@@ -88,11 +89,19 @@ document.getElementById("btn_id").addEventListener("click", () => {
   }
 });
 
+const livesCounter = 3;
+
 let form = document.getElementById("pokeForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   // for loop to check each guess starting with 1
   for (let i = 1; i < 6; i++) {
+    // reveal names of pokemon
+    let footerAnswer = document.getElementsByClassName("poke_name")[i - 1];
+    footerAnswer.style.visibility = "visible";
+    footerAnswer.style.backgroundColor = "gray";
+    footerAnswer.style.color = "orange";
+
     // assigning needed variables for evaluations
     let guess = document.getElementById(`guess_${i}`).value.toLowerCase();
     let answer = arrayOfPokes[i - 1].name.toLowerCase();
