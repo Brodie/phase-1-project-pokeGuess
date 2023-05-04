@@ -8,7 +8,6 @@ console.log("hi");
 let pokeNums = [];
 let usedNums = [];
 let arrayOfPokes = [];
-let pokeObj = {};
 
 //need to fetch pokemon before click, then use the fetched object after being clicked to generate
 // the cards. instead of clicking and loading them all
@@ -31,11 +30,11 @@ for (let i = 0; i < 5; i++) {
   arrTester();
 }
 // fetches array of pokeObj on load, preps the array to be iterated through to add card elements
+// then addes pokeObj to array of Pokes
 pokeNums.forEach((num) => {
   fetch(`https://pokeapi.co/api/v2/pokemon/${num}/`)
     .then((res) => res.json())
     .then((pokemon) => {
-      // create pokeObj and give keys
       let pokeObj = {};
       pokeObj.id = num;
       pokeObj.name = pokemon.name;
@@ -56,6 +55,7 @@ pokeNums.forEach((num) => {
 document.getElementById("btn_id").addEventListener("click", () => {
   arrayOfPokes.forEach((pokeObj, index) => {
     let card = document.getElementById(`poke_${index + 1}`);
+
     let cardTitle = document.createElement("h2");
     cardTitle.textContent = `Pokemon Number ${index + 1}`;
     card.append(cardTitle);
@@ -63,6 +63,22 @@ document.getElementById("btn_id").addEventListener("click", () => {
     let pokeImg = document.createElement("img");
     pokeImg.src = pokeObj.img;
     card.append(pokeImg);
+
+    let pokeNameFoot = document.createElement("footer");
+    pokeNameFoot.textContent = pokeObj.name.toUpperCase();
+    pokeNameFoot.style.visibility = "hidden";
+    card.append(pokeNameFoot);
+
+    // clear poke nums for fetching of new pokes on second round
+    pokeNums.shift();
+    // if already pulled 150, should only pull one more
   });
-  pokeNums.shift();
+  if (usedNums.length === 150) {
+    arrTester();
+  } else {
+    for (let i = 0; i < 5; i++) {
+      arrTester();
+    }
+  }
+  console.log(usedNums);
 });
