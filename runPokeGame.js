@@ -1,10 +1,9 @@
 /*ToDo: 
-add score container
-add lives container
-on start game add these 2 containers to DOM
-hook up form to add points and deduct lives based on form answers!
-test! at this point i think it should be mostly hooked up to be a MVP. if so, try to add more features!
-
+to set up second round:
+fetch 5 new nums on click to start game and push to arrayOfPokes
+on either click of submit or on next round button, remove first 5 elements of array of pokes
+remove 5 pokemon card elements
+then hopefully reuse code to play second round. hopefully am able to make this loop repeatedly and not need code for EVERY new round
 */
 console.log("hi");
 
@@ -136,10 +135,10 @@ form.addEventListener("submit", (e) => {
 
     if (types.length === 2) {
       typesText.textContent = `Types: ${types[0].toUpperCase()}, ${types[1].toUpperCase()}`;
-      typesAnswered.textContent = `You Guessed: ${typeOneGuess.toUpperCase()} ${typeTwoGuess.toUpperCase()}`;
+      typesAnswered.textContent = `Types Guessed: ${typeOneGuess.toUpperCase()} ${typeTwoGuess.toUpperCase()}`;
     } else {
       typesText.textContent = `Type: ${types[0].toUpperCase()}`;
-      typesAnswered.textContent = `You Guessed: ${typeOneGuess.toUpperCase()}`;
+      typesAnswered.textContent = `Type Guessed: ${typeOneGuess.toUpperCase()}`;
     }
     pokeCard.append(typesText);
     pokeCard.append(typesAnswered);
@@ -188,4 +187,7 @@ form.addEventListener("submit", (e) => {
   document.getElementById(
     "score_container"
   ).textContent = `Score: ${pokeScore}`;
+
+  //reset form
+  form.reset();
 });
