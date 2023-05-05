@@ -1,9 +1,10 @@
 /*ToDo: 
-to set up second round:
-fetch 5 new nums on click to start game and push to arrayOfPokes
-on either click of submit or on next round button, remove first 5 elements of array of pokes
-remove 5 pokemon card elements
-then hopefully reuse code to play second round. hopefully am able to make this loop repeatedly and not need code for EVERY new round
+remove submit on submit so you cant double submit
+add win and lose screens
+code that checks if counter is at zero
+---
+style
+dropdown for gens
 */
 console.log("hi");
 
@@ -197,6 +198,8 @@ form.addEventListener("submit", (e) => {
   nextRound.addEventListener("click", startSecondRound);
 
   // fetch next round!
+  // almost identical to previous fetch. but removes first element
+  // on each iteration so that card building code can be reused
   pokeNums.forEach((num) => {
     fetch(`https://pokeapi.co/api/v2/pokemon/${num}/`)
       .then((res) => res.json())
@@ -234,6 +237,7 @@ function startSecondRound(e) {
   // remove next round button
   e.target.remove();
   // load new pokemon!
+  // can maybe be refactored into a function
   arrayOfPokes.forEach((pokeObj, index) => {
     let card = document.getElementById(`poke_${index + 1}`);
 
