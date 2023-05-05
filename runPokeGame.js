@@ -107,6 +107,8 @@ document.getElementById("btn_id").addEventListener("click", () => {
   }
 });
 
+// Code below is form handling/score handling/ fetch to prep next round
+//
 let form = document.getElementById("pokeForm");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -192,7 +194,74 @@ form.addEventListener("submit", (e) => {
   let nextRound = document.createElement("button");
   nextRound.textContent = "Next Round!";
   document.querySelector("section").append(nextRound);
+  nextRound.addEventListener("click", startSecondRound);
 
+  // fetch next round!
+  pokeNums.forEach((num) => {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${num}/`)
+      .then((res) => res.json())
+      .then((pokemon) => {
+        let pokeObj = {};
+        pokeObj.id = num;
+        pokeObj.name = pokemon.name;
+        pokeObj.img = pokemon.sprites.front_default;
+
+        if (pokemon.types.length === 2) {
+          pokeObj.typeOne = pokemon.types[0].type.name;
+          pokeObj.typeTwo = pokemon.types[1].type.name;
+        } else {
+          pokeObj.typeOne = pokemon.types[0].type.name;
+        }
+
+        arrayOfPokes.push(pokeObj);
+        arrayOfPokes.shift();
+        console.log(arrayOfPokes);
+      });
+  });
   //reset form
   form.reset();
 });
+
+// actually just plays next round continuously
+function startSecondRound(e) {
+  // remove poke cards
+  for (let i = 1; i < 6; i++) {
+    pokeNode = document.getElementById(`poke_${i}`);
+    while (pokeNode.firstChild) {
+      pokeNode.removeChild(pokeNode.lastChild);
+    }
+  }
+  // remove next round button
+  e.target.remove();
+  // load new pokemon!
+  arrayOfPokes.forEach((pokeObj, index) => {
+    let card = document.getElementById(`poke_${index + 1}`);
+
+    let cardTitle = document.createElement("h2");
+    cardTitle.textContent = `Pokemon Number ${index + 1}`;
+    card.append(cardTitle);
+
+    let pokeImg = document.createElement("img");
+    pokeImg.src = pokeObj.img;
+    card.append(pokeImg);
+
+    let pokeNameFoot = document.createElement("h2");
+    pokeNameFoot.classList.add("poke_name", "poke_answers");
+    pokeNameFoot.textContent = pokeObj.name.toUpperCase();
+    pokeNameFoot.style.visibility = "hidden";
+    card.append(pokeNameFoot);
+
+    // clear poke nums for fetching of new pokes on second round
+    pokeNums.shift();
+  });
+
+  // if already pulled 150, should only pull one more
+  // generate new 5 nums for next round
+  if (usedNums.length === 150) {
+    generatePokeNums();
+  } else {
+    for (let i = 0; i < 5; i++) {
+      generatePokeNums();
+    }
+  }
+}
