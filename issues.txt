@@ -17,3 +17,8 @@ Then wanted to test if the number had already been generated
 Realized I needed a 3rd element for the object pulled from API after rereading requirements (ID dont count lol)
  -- created way to add type or types to object
  -- will have to add way to guess type to form. maybe dropdown or two?
+
+
+ - bug/issue discovered
+ -- clicking on submit button again before clicking next round breaks things
+ -- will have to fix by hiding submit on click, and making visible on next round click
