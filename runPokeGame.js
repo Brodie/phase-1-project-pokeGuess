@@ -188,6 +188,11 @@ form.addEventListener("submit", (e) => {
     "score_container"
   ).textContent = `Score: ${pokeScore}`;
 
+  // create button to do next round
+  let nextRound = document.createElement("button");
+  nextRound.textContent = "Next Round!";
+  document.querySelector("section").append(nextRound);
+
   //reset form
   form.reset();
 });
