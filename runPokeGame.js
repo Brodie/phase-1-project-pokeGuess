@@ -184,9 +184,9 @@ form.addEventListener("submit", (e) => {
   //------------------
 
   // update score and lives
-  document.getElementById(
-    "lives_container"
-  ).textContent = `Lives:💟 ${livesCounter}`;
+  document.getElementById("lives_container").textContent = `Lives:💟 ${
+    livesCounter <= 0 ? 0 : livesCounter
+  }`;
   document.getElementById(
     "score_container"
   ).textContent = `Score: ${pokeScore}`;
@@ -227,7 +227,14 @@ form.addEventListener("submit", (e) => {
   form.reset();
   // check lives remaining. If <0, give lose screen
   if (livesCounter <= 0) {
-    console.log("you suck. and also lose");
+    document.getElementById("container_title").textContent =
+      "Out Of Lives! You Lose";
+    for (let i = 1; i < 6; i++) {
+      pokeNode = document.getElementById(`poke_${i}`);
+      while (pokeNode.firstChild) {
+        pokeNode.removeChild(pokeNode.lastChild);
+      }
+    }
   }
 });
 
