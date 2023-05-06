@@ -1,10 +1,10 @@
 /*ToDo: 
-remove submit on submit so you cant double submit
 add win and lose screens
 code that checks if counter is at zero
 ---
 style
 dropdown for gens
+    - what are we going to have to do with our PRELOADED arrayOfPokes on dropdown change?
 */
 console.log("hi");
 
@@ -221,12 +221,16 @@ form.addEventListener("submit", (e) => {
         console.log(arrayOfPokes);
       });
   });
+  // hide submit button so you cant click it without first loading the next round
+  document.getElementById("submit_guess").style.visibility = "hidden";
   //reset form
   form.reset();
 });
 
 // actually just plays next round continuously
 function startSecondRound(e) {
+  // make submit visible
+  document.getElementById("submit_guess").style.visibility = "visible";
   // remove poke cards
   for (let i = 1; i < 6; i++) {
     pokeNode = document.getElementById(`poke_${i}`);
