@@ -13,7 +13,7 @@ let pokeNums = [];
 let usedNums = [];
 let arrayOfPokes = [];
 
-// random number between 1 and 151
+// random number between 1 and 151 (number of pokemon in original generation)
 // might add variables and add dom content way to change at some point. guess more pokemon!
 function rdmNum() {
   let rdm = Math.floor(Math.random() * (151 - 1 + 1) + 1);
@@ -225,6 +225,10 @@ form.addEventListener("submit", (e) => {
   document.getElementById("submit_guess").style.visibility = "hidden";
   //reset form
   form.reset();
+  // check lives remaining. If <0, give lose screen
+  if (livesCounter <= 0) {
+    console.log("you suck. and also lose");
+  }
 });
 
 // actually just plays next round continuously
