@@ -229,16 +229,21 @@ form.addEventListener("submit", (e) => {
   if (livesCounter <= 0) {
     document.getElementById("container_title").textContent =
       "Out Of Lives! You Lose ";
+    // remove poke images
     for (let i = 1; i < 6; i++) {
       pokeNode = document.getElementById(`poke_${i}`);
       while (pokeNode.firstChild) {
         pokeNode.removeChild(pokeNode.lastChild);
       }
     }
+    // create endgame gif
     let endGameEle = document.createElement("img");
     // thanks giphy for the gif
     endGameEle.src = "https://media.giphy.com/media/LkJCuaohj4CLm/giphy.gif";
     document.getElementById("container_title").append(endGameEle);
+
+    // remove next round button
+    nextRound.remove();
   }
 });
 
