@@ -1,0 +1,5 @@
+#poke_container {
+  background-color: grey;
+  display: flexbox;
+  align-items: center;
+}
