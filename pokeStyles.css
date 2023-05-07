@@ -1,5 +1,31 @@
 #poke_container {
+  display: flex;
   background-color: grey;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 35px;
+  padding-left: 35px;
+  width: 500px;
+}
+
+#card_list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: bisque;
+  align-content: space-around;
+}
+
+#container_title {
+  display: flex;
+  justify-content: center;
+}
+
+.pokeImg {
   display: flexbox;
-  align-items: center;
+  justify-content: center;
+}
+
+.pokemonPic {
+  width: 30%;
 }

@@ -94,6 +94,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
     let pokeImg = document.createElement("img");
     pokeImg.src = pokeObj.img;
     card.append(pokeImg);
+    pokeImg.classList.add("pokemonPic");
 
     let pokeNameFoot = document.createElement("h2");
     pokeNameFoot.classList.add("poke_name", "poke_answers");
@@ -280,6 +281,7 @@ function startSecondRound(e) {
     let pokeImg = document.createElement("img");
     pokeImg.src = pokeObj.img;
     card.append(pokeImg);
+    pokeImg.classList.add("pokemonPic");
 
     let pokeNameFoot = document.createElement("h2");
     pokeNameFoot.classList.add("poke_name", "poke_answers");
