@@ -68,13 +68,21 @@ let pokeScore = 0;
 document.getElementById("btn_id").addEventListener("click", () => {
   // delete lets play button
   document.getElementById("btn_id").remove();
-  // make lives container and score container visible
+  // Update lives container and score container
+  // make all elements visible
   let lives = document.getElementById("lives_container");
   lives.style.visibility = "visible";
   lives.textContent = `Lives:💟 ${livesCounter}`;
+
   let score = document.getElementById("score_container");
   score.style.visibility = "visible";
   score.textContent = `Score: ${pokeScore}`;
+
+  let pokeContainer = document.getElementById("poke_container");
+  pokeContainer.style.visibility = "visible";
+  let pokeForm = document.getElementById("poke_form");
+  pokeForm.style.visibility = "visible";
+
   // build pokemon card
   arrayOfPokes.forEach((pokeObj, index) => {
     let card = document.getElementById(`poke_${index + 1}`);
@@ -110,7 +118,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
 
 // Code below is form handling/score handling/ fetch to prep next round
 //
-let form = document.getElementById("pokeForm");
+let form = document.getElementById("poke_form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   // for loop to check each guess starting with 1

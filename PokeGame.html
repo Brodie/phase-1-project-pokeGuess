@@ -9,7 +9,11 @@
   <body>
     <h1 id="main_header">Pokemon Guesser!</h1>
     <button id="btn_id">Let's Play!</button>
-    <div id="poke_container" style="background: rgb(250, 247, 62)">
+    <div
+      id="poke_container"
+      style="visibility: hidden"
+      style="background: rgb(220, 217, 31)"
+    >
       <h2 id="container_title">Who Are These Pokemon?</h2>
       <ol id="card_list">
         <div id="poke_1"></div>
@@ -24,7 +28,7 @@
       <h2 style="visibility: hidden" id="score_container"></h2>
     </section>
     <br />
-    <form id="pokeForm">
+    <form style="visibility: hidden" id="poke_form">
       <input type="text" id="guess_1" placeholder="Pokemon 1 Guess!" /><br />
       <label for="type_1">Guess Type(s)!</label>
       <select name="type_1" id="guess_1_type1">
