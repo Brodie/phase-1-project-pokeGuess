@@ -1,3 +1,5 @@
+@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+/*
 #poke_container {
   display: flex;
   background-color: grey;
@@ -28,4 +30,59 @@
 
 .pokemonPic {
   width: 30%;
+}
+
+
+#main_header {
+    margin: 0 auto;
+}
+*/
+#main_container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(189, 189, 189);
+}
+
+#main_header {
+  background-color: rgb(232, 133, 133);
+  display: flex;
+  justify-content: center;
+  color: #ffc800;
+  font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 0.35rem;
+  height: auto;
+  width: auto;
+  padding: 0px 0px 25px 5px;
+  font-size: 45px;
+  -webkit-text-stroke-color: blue;
+  -webkit-text-stroke-width: 1px;
+  margin: 0 auto;
+  border: black solid 2px;
+}
+#btn_id {
+  background-color: #adebad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 0.15rem;
+  font-size: 25px;
+  margin: 5px auto;
+  width: 75%;
+}
+
+#pokeballImage {
+  width: 50px;
+  height: 50px;
+}
+
+#poke_container {
+  background-color: #adebad;
+}
+
+#poke_form {
+  background-color: #ffc800;
+  min-width: 250px;
+  height: 500px;
 }
