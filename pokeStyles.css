@@ -1,47 +1,19 @@
 @import url("https://fonts.cdnfonts.com/css/pokemon-solid");
-/*
-#poke_container {
-  display: flex;
-  background-color: grey;
-  flex-direction: column;
-  justify-content: center;
-  padding-right: 35px;
-  padding-left: 35px;
-  width: 500px;
-}
 
-#card_list {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: bisque;
-  align-content: space-around;
-}
-
-#container_title {
-  display: flex;
-  justify-content: center;
-}
-
-.pokeImg {
-  display: flexbox;
-  justify-content: center;
-}
-
-.pokemonPic {
-  width: 30%;
-}
-
-
-#main_header {
-    margin: 0 auto;
-}
-*/
 #main_container {
-  margin: 0 auto;
+  margin: 5px auto;
   display: flex;
   flex-direction: row;
-  background-color: rgb(189, 189, 189);
+  flex-wrap: wrap;
+  padding-top: 10px;
+  justify-content: center;
+  outline: black 2px solid;
+  gap: 2rem;
+  background-color: rgb(164, 10, 10);
+}
+
+#main_container > * {
+  border: gray solid 3px;
 }
 
 #main_header {
