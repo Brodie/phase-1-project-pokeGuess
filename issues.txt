@@ -21,4 +21,8 @@ Realized I needed a 3rd element for the object pulled from API after rereading r
 
  - bug/issue discovered
  -- clicking on submit button again before clicking next round breaks things
- -- will have to fix by hiding submit on click, and making visible on next round click
+ -- will have to fix by hiding submit on click, and making visible on next round
+
+ -- issue with styling. since im adding large amount of text on submission.
+ its becoming difficult to style it in a way that looks pleasant upon initial load
+ and after pokemon Answered

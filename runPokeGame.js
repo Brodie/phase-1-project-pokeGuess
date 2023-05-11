@@ -127,7 +127,6 @@ form.addEventListener("submit", (e) => {
     // reveal names of pokemon
     let footerAnswer = document.getElementsByClassName("poke_name")[i - 1];
     footerAnswer.style.visibility = "visible";
-    footerAnswer.style.backgroundColor = "gray";
 
     // assigning needed variables for evaluations
     let guess = document.getElementById(`guess_${i}`).value.toLowerCase();
@@ -141,9 +140,7 @@ form.addEventListener("submit", (e) => {
     let typesText = document.createElement("h3");
     let typesAnswered = document.createElement("h3");
     typesText.classList.add("poke_answers");
-    typesText.style.backgroundColor = "gray";
-    typesAnswered.style.backgroundColor = "gray";
-    typesAnswered.style.color = "white";
+    typesAnswered.classList.add("poke_answers");
 
     if (types.length === 2) {
       typesText.textContent = `Types: ${types[0].toUpperCase()}, ${types[1].toUpperCase()}`;
@@ -163,9 +160,9 @@ form.addEventListener("submit", (e) => {
     } else {
       livesCounter -= 1;
       footerAnswer.textContent =
-        "Sorry, the answer is: " +
+        "Incorrect: " +
         `${footerAnswer.textContent}` +
-        ` You guessed ${guess.toUpperCase()}`;
+        ` Guessed ${guess.toUpperCase()}`;
       footerAnswer.style.color = "orange";
     }
     // type checking no lives taken

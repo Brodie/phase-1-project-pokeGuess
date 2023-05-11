@@ -16,6 +16,54 @@
   border: gray solid 3px;
 }
 
+#poke_container {
+  background-color: #adebad;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#card_list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  flex-shrink: 1;
+  align-items: center;
+  min-height: 500px;
+}
+
+#card_list > * {
+  border: 2px solid black;
+  margin: 20px 10px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 250px;
+}
+
+.pokeImg {
+  display: flex;
+  font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 0.2rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 1;
+  padding: 5px;
+}
+
+.pokemonPic {
+}
+
+.poke_answers {
+  font-size: 8px;
+}
+
 #main_header {
   background-color: rgb(232, 133, 133);
   display: flex;
@@ -47,10 +95,6 @@
 #pokeballImage {
   width: 50px;
   height: 50px;
-}
-
-#poke_container {
-  background-color: #adebad;
 }
 
 #poke_form {
