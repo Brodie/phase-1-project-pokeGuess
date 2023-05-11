@@ -88,7 +88,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
     let card = document.getElementById(`poke_${index + 1}`);
 
     let cardTitle = document.createElement("h2");
-    cardTitle.textContent = `Pokemon Number ${index + 1}`;
+    cardTitle.textContent = `Pokemon ${index + 1}`;
     card.append(cardTitle);
 
     let pokeImg = document.createElement("img");
@@ -253,6 +253,7 @@ form.addEventListener("submit", (e) => {
 
     // remove next round button
     nextRound.remove();
+    document.getElementById("card_list").remove();
   }
 });
 
@@ -275,7 +276,7 @@ function startSecondRound(e) {
     let card = document.getElementById(`poke_${index + 1}`);
 
     let cardTitle = document.createElement("h2");
-    cardTitle.textContent = `Pokemon Number ${index + 1}`;
+    cardTitle.textContent = `Pokemon  ${index + 1}`;
     card.append(cardTitle);
 
     let pokeImg = document.createElement("img");
