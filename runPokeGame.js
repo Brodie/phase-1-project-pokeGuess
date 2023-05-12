@@ -118,6 +118,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
 let form = document.getElementById("poke_form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  document.getElementById("selectors").style.display = "none";
   // for loop to check each guess starting with 1
   for (let i = 1; i < 6; i++) {
     // reveal names of pokemon
@@ -255,6 +256,7 @@ form.addEventListener("submit", (e) => {
 function startSecondRound(e) {
   // make submit visible
   document.getElementById("submit_guess").style.visibility = "visible";
+  document.getElementById("selectors").style.display = "block";
   // remove poke cards
   for (let i = 1; i < 6; i++) {
     pokeNode = document.getElementById(`poke_${i}`);
