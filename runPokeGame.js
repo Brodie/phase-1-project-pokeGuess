@@ -64,7 +64,7 @@ document.getElementById("btn_id").addEventListener("click", () => {
   // make all elements visible
   let lives = document.getElementById("lives_container");
   lives.style.visibility = "visible";
-  lives.textContent = `Lives:💟 ${livesCounter}`;
+  lives.textContent = `Lives:❤️ ${livesCounter}`;
 
   let score = document.getElementById("score_container");
   score.style.visibility = "visible";
@@ -187,7 +187,7 @@ form.addEventListener("submit", (e) => {
   //------------------
 
   // update score and lives
-  document.getElementById("lives_container").textContent = `Lives:💟 ${
+  document.getElementById("lives_container").textContent = `Lives:❤️ ${
     livesCounter <= 0 ? 0 : livesCounter
   }`;
   document.getElementById(
