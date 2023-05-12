@@ -1,11 +1,3 @@
-/*ToDo: 
-add win and lose screens
-code that checks if counter is at zero
----
-style
-dropdown for gens
-    - what are we going to have to do with our PRELOADED arrayOfPokes on dropdown change?
-*/
 console.log("hi");
 
 // arrays for performing fetch
@@ -236,26 +228,27 @@ form.addEventListener("submit", (e) => {
   //reset form
   form.reset();
   // check lives remaining. If <0, give lose screen
-  if (livesCounter <= 0) {
-    document.getElementById("container_title").textContent =
-      "Out Of Lives! You Lose ";
-    // remove poke images
-    for (let i = 1; i < 6; i++) {
-      pokeNode = document.getElementById(`poke_${i}`);
-      while (pokeNode.firstChild) {
-        pokeNode.removeChild(pokeNode.lastChild);
-      }
-    }
-    // create endgame gif
-    let endGameEle = document.createElement("img");
-    // thanks giphy for the gif
-    endGameEle.src = "https://media.giphy.com/media/LkJCuaohj4CLm/giphy.gif";
-    document.getElementById("container_title").append(endGameEle);
 
-    // remove next round button
-    nextRound.remove();
-    document.getElementById("card_list").remove();
-  }
+  //   if (livesCounter <= 0) {
+  //     document.getElementById("container_title").textContent =
+  //       "Out Of Lives! You Lose ";
+  //     // remove poke images
+  //     for (let i = 1; i < 6; i++) {
+  //       pokeNode = document.getElementById(`poke_${i}`);
+  //       while (pokeNode.firstChild) {
+  //         pokeNode.removeChild(pokeNode.lastChild);
+  //       }
+  //     }
+  //     // create endgame gif
+  //     let endGameEle = document.createElement("img");
+  //     // thanks giphy for the gif
+  //     endGameEle.src = "https://media.giphy.com/media/LkJCuaohj4CLm/giphy.gif";
+  //     document.getElementById("container_title").append(endGameEle);
+
+  //     // remove next round button
+  //     nextRound.remove();
+  //     document.getElementById("card_list").remove();
+  //   }
 });
 
 // actually just plays next round continuously
