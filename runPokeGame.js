@@ -96,11 +96,15 @@ document.getElementById("btn_id").addEventListener("click", () => {
     card.append(pokeImg);
     pokeImg.classList.add("pokemonPic");
 
+    let answerDiv = document.createElement("div");
+    answerDiv.classList.add("answer_div");
+
     let pokeNameFoot = document.createElement("h2");
     pokeNameFoot.classList.add("poke_name", "poke_answers");
     pokeNameFoot.textContent = pokeObj.name.toUpperCase();
     pokeNameFoot.style.visibility = "hidden";
-    card.append(pokeNameFoot);
+    answerDiv.append(pokeNameFoot);
+    card.append(answerDiv);
 
     // clear poke nums for fetching of new pokes on second round
     pokeNums.shift();
@@ -136,7 +140,7 @@ form.addEventListener("submit", (e) => {
     let types = Object.values(arrayOfPokes[i - 1]).slice(3);
 
     // update poke card to display types
-    let pokeCard = document.getElementById(`poke_${i}`);
+    let pokeCard = document.getElementById(`poke_${i}`).querySelector("div");
     let typesText = document.createElement("h3");
     let typesAnswered = document.createElement("h3");
     typesText.classList.add("poke_answers");
@@ -281,11 +285,15 @@ function startSecondRound(e) {
     card.append(pokeImg);
     pokeImg.classList.add("pokemonPic");
 
+    let answerDiv = document.createElement("div");
+    answerDiv.classList.add("answer_div");
+
     let pokeNameFoot = document.createElement("h2");
     pokeNameFoot.classList.add("poke_name", "poke_answers");
     pokeNameFoot.textContent = pokeObj.name.toUpperCase();
     pokeNameFoot.style.visibility = "hidden";
-    card.append(pokeNameFoot);
+    answerDiv.append(pokeNameFoot);
+    card.append(answerDiv);
 
     // clear poke nums for fetching of new pokes on second round
     pokeNums.shift();
