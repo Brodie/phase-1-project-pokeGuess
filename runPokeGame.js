@@ -197,6 +197,7 @@ form.addEventListener("submit", (e) => {
   // create button to do next round
   let nextRound = document.createElement("button");
   nextRound.textContent = "Next Round!";
+  nextRound.setAttribute("id", "next_round");
   document.querySelector("section").append(nextRound);
   nextRound.addEventListener("click", startSecondRound);
 
