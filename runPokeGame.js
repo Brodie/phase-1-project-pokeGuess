@@ -159,7 +159,7 @@ form.addEventListener("submit", (e) => {
       footerAnswer.textContent =
         "Incorrect: " +
         `${footerAnswer.textContent}` +
-        ` Guessed ${guess.toUpperCase()}`;
+        ` Guessed: ${guess.toUpperCase()}`;
       footerAnswer.style.color = "orange";
     }
     // type checking no lives taken
