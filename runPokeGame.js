@@ -58,8 +58,9 @@ let pokeScore = 0;
 
 // button to start game
 document.getElementById("btn_id").addEventListener("click", () => {
-  // delete lets play button
+  // delete lets play button and instructions
   document.getElementById("btn_id").remove();
+  document.getElementById("instructions").remove();
   // Update lives container and score container
   // make all elements visible
   let lives = document.getElementById("lives_container");
