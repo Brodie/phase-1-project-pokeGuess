@@ -9,7 +9,7 @@
   justify-content: center;
   outline: black 2px solid;
   gap: 2rem;
-  background-color: rgb(164, 10, 10);
+  background-color: rgb(80, 80, 80);
 }
 
 #main_container > * {
@@ -17,11 +17,15 @@
 }
 
 #poke_container {
-  background-color: #adebad;
+  background-color: #ffc800;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  font-family: "Pokemon Solid", sans-serif;
+  letter-spacing: 0.15rem;
+  color: firebrick;
+  min-width: fit-content;
 }
 
 #card_list {
@@ -53,6 +57,8 @@
   flex-shrink: 1;
   padding: 5px;
   min-width: 300px;
+  background-color: #adebad;
+  color: black;
 }
 
 .pokemonPic {
@@ -66,22 +72,30 @@
 }
 
 .poke_answers {
-  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 20px;
   width: fit-content;
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: normal;
-  background-color: gray;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
+  min-width: 300px;
+  max-width: 300px;
 }
 
 #main_header {
   background-color: rgb(232, 133, 133);
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   color: #ffc800;
   font-family: "Pokemon Solid", sans-serif;
   letter-spacing: 0.35rem;
   height: auto;
-  width: auto;
+  width: fit-content;
+  align-items: center;
   padding: 0px 0px 25px 5px;
   font-size: 45px;
   -webkit-text-stroke-color: blue;

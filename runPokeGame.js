@@ -219,8 +219,9 @@ form.addEventListener("submit", (e) => {
         } else {
           pokeObj.typeOne = pokemon.types[0].type.name;
         }
-
+        // add pokemon
         arrayOfPokes.push(pokeObj);
+        // remove a previous pokemon
         arrayOfPokes.shift();
         console.log(arrayOfPokes);
       });
