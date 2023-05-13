@@ -230,8 +230,27 @@ form.addEventListener("submit", (e) => {
   document.getElementById("submit_guess").style.visibility = "hidden";
   //reset form
   form.reset();
-  // check lives remaining. If <0, give lose screen
+  if (usedNums.length === 151) {
+    console.log("you win");
+    let loseCard = document.createElement("div");
+    loseCard.textContent = "You Guessed them all! Congrats!";
+    loseCard.setAttribute("id", "lose_card");
 
+    document.getElementById("selectors").remove();
+    document.getElementById("submit_guess").remove();
+
+    // create endgame gif
+    let endGameEle = document.createElement("img");
+    // thanks giphy for the gif
+    endGameEle.src = "https://media.giphy.com/media/Jir3toQTWW9Ne/giphy.gif";
+    loseCard.append(endGameEle);
+
+    // remove next round button
+    nextRound.remove();
+    document.getElementById("poke_form").append(loseCard);
+  }
+  // check lives remaining. If <0, give lose screen
+  //
   if (livesCounter <= 0) {
     let loseCard = document.createElement("div");
     loseCard.textContent = "Out Of Lives! You Lose ";
