@@ -230,6 +230,8 @@ form.addEventListener("submit", (e) => {
   document.getElementById("submit_guess").style.visibility = "hidden";
   //reset form
   form.reset();
+
+  // Winning screen
   if (usedNums.length === 151) {
     console.log("you win");
     let loseCard = document.createElement("div");
