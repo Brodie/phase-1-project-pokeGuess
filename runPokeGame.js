@@ -235,6 +235,7 @@ form.addEventListener("submit", (e) => {
   if (livesCounter <= 0) {
     let loseCard = document.createElement("div");
     loseCard.textContent = "Out Of Lives! You Lose ";
+    loseCard.setAttribute("id", "lose_card");
 
     document.getElementById("selectors").remove();
     document.getElementById("submit_guess").remove();

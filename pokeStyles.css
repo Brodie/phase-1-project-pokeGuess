@@ -193,3 +193,13 @@ body {
   font-size: 18px;
   padding: 5px;
 }
+
+#lose_card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  align-items: center;
+  font-size: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
