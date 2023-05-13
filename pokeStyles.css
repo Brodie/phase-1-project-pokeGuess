@@ -38,7 +38,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 10px;
+  padding: 10px 5px 0px;
   height: auto;
   font-size: 20px;
   width: fit-content;
@@ -117,7 +117,7 @@ body {
   -webkit-text-stroke-color: blue;
   -webkit-text-stroke-width: 1px;
   margin: 0 auto;
-  border: black solid 2px;
+  border: black solid 4px;
 }
 
 #main_header > * {

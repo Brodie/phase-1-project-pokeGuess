@@ -233,25 +233,21 @@ form.addEventListener("submit", (e) => {
   // check lives remaining. If <0, give lose screen
 
   if (livesCounter <= 0) {
-    document.getElementById("container_title").textContent =
-      "Out Of Lives! You Lose ";
-    // remove poke images
-    for (let i = 1; i < 6; i++) {
-      pokeNode = document.getElementById(`poke_${i}`);
-      while (pokeNode.firstChild) {
-        pokeNode.removeChild(pokeNode.lastChild);
-      }
-    }
+    let loseCard = document.createElement("div");
+    loseCard.textContent = "Out Of Lives! You Lose ";
+
+    document.getElementById("selectors").remove();
+    document.getElementById("submit_guess").remove();
 
     // create endgame gif
     let endGameEle = document.createElement("img");
     // thanks giphy for the gif
     endGameEle.src = "https://media.giphy.com/media/LkJCuaohj4CLm/giphy.gif";
-    document.getElementById("container_title").append(endGameEle);
+    loseCard.append(endGameEle);
 
     // remove next round button
     nextRound.remove();
-    document.getElementById("card_list").remove();
+    document.getElementById("poke_form").append(loseCard);
   }
 });
 
