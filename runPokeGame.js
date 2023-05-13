@@ -175,6 +175,7 @@ form.addEventListener("submit", (e) => {
       }
     } else if (!types.includes(typeOneGuess)) {
       if (types.includes(typeTwoGuess)) {
+        pokeScore += 1;
         typesText.style.color = "cyan";
         typesText.textContent = typesText.textContent + " | + 1 point!";
       } else {
