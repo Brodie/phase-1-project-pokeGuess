@@ -167,6 +167,20 @@ body {
   color: white;
 }
 
+#lives_container {
+  border: solid rgb(169, 0, 169) 3px;
+  background-color: pink;
+  margin: 5px auto 0px;
+  padding: 5px 25px;
+}
+
+#score_container {
+  margin-bottom: 50px;
+  border: solid rgb(169, 0, 169) 3px;
+  background-color: pink;
+  padding: 5px 25px;
+}
+
 #container_title {
   color: whitesmoke;
   -webkit-text-stroke-color: black;
