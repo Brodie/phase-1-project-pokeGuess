@@ -1,3 +1,6 @@
+-- No Issues at this time. All issues listed are old/resolved
+
+
 Going to try to keep this updated with issues im currently facing or think im going to run into
 
 Current issue im thinking about: Accessing an array that is being pushed into via fetch.
