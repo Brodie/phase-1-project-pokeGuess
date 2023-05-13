@@ -47,7 +47,6 @@ pokeNums.forEach((num) => {
       }
 
       arrayOfPokes.push(pokeObj);
-      console.log(arrayOfPokes);
     });
 });
 //--------------------------------------------------------------
@@ -224,7 +223,6 @@ form.addEventListener("submit", (e) => {
         arrayOfPokes.push(pokeObj);
         // remove a previous pokemon
         arrayOfPokes.shift();
-        console.log(arrayOfPokes);
       });
   });
   // hide submit button so you cant click it without first loading the next round
