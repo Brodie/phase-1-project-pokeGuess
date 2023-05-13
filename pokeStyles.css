@@ -30,6 +30,7 @@ body {
   font-family: "Pokemon Solid", sans-serif;
   letter-spacing: 0.15rem;
   min-width: fit-content;
+  padding: 5px;
 }
 
 #instructions {
@@ -102,9 +103,10 @@ body {
 #main_header {
   background-color: firebrick;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  color: #ffc800;
+  color: #fee77f;
   font-family: "Pokemon Solid", sans-serif;
   letter-spacing: 0.35rem;
   height: auto;
@@ -117,6 +119,15 @@ body {
   margin: 0 auto;
   border: black solid 2px;
 }
+
+#main_header > * {
+  font-size: 25px;
+  margin: 0;
+  -webkit-text-stroke-color: blue;
+  -webkit-text-stroke-width: 0px;
+  color: #fee77f;
+}
+
 #btn_id {
   background-color: #adebad;
   display: flex;
