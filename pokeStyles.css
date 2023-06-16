@@ -153,6 +153,8 @@ body {
   min-width: 250px;
   height: 550px;
   padding: 5px;
+  position: sticky;
+  top: 10px;
 }
 
 #scoreboard {
